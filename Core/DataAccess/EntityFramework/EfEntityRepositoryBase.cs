@@ -60,10 +60,5 @@ namespace Core.DataAccess.EntityFramework
                 context.SaveChanges();
             }
         }
-
-        public List<TEntity> GetAllByCategory(int categoryId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

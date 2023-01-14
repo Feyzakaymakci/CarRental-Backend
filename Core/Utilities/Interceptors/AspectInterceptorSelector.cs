@@ -17,7 +17,7 @@ namespace Core.Utilities.Interceptors
             classAttributes.AddRange(methodAttributes); 
             //classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger))); //Otomatik olarak sistemdeki tüm metotları log a dahil et demek. Şuan loglama altyapısı yok bu yüzden bu metodu kullanmıyoruz.
 
-            return classAttributes.OrderBy(x => x.Priority).ToArray(); //Çalışma sırasını da öncelik değerine()priorty) göre sırala
+            return classAttributes.OrderBy(x => x.Priority).ToArray(); //Çalışma sırasını da öncelik değerine priorty() göre sırala
         }
     }
 }

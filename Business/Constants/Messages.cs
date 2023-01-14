@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Constants
 {
-    public class Messages
+    public static class Messages
     {
         //Car
         public static string CarAdded = "Car added";
@@ -15,6 +15,7 @@ namespace Business.Constants
         public static string CarGetAll = "Car get all";
         public static string CarDetails = "Car detail listed";
         public static string CarListed = "Car listed";
+        public static string CarNameInvalid = "Car name is invalid";
 
         //Brand
         public static string BrandAdded = "Brand added";
@@ -33,6 +34,7 @@ namespace Business.Constants
         public static string CustomerDeleted = "Customer deleted";
         public static string CustomerUpdated = "Customer updated";
         public static string CustomerListed = "Customer listed";
+        
 
         //Rental
         public static string RentalAdded = "Rental added";
@@ -49,7 +51,7 @@ namespace Business.Constants
         public static string UserUpdated = "User Updated.";
         public static string UserListed = "User listed.";
 
-       
-
+        //CarImage
+        public static string SameNameExist;
     }
 }

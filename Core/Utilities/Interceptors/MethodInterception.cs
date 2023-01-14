@@ -9,7 +9,7 @@ namespace Core.Utilities.Interceptors
         {
             protected virtual void OnBefore(IInvocation invocation) { }  //metotdan önce
             protected virtual void OnAfter(IInvocation invocation) { } //metotdan sonra
-            protected virtual void OnException(IInvocation invocation, System.Exception e) { }  //hata aldığında
+            protected virtual void OnException(IInvocation invocation, System.Exception e) { }  //Hata yakalama anında
             protected virtual void OnSuccess(IInvocation invocation) { } //başarılı olursa
             public override void Intercept(IInvocation invocation) //asıl kullanacağımız metot
             {
