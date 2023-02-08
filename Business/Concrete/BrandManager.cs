@@ -1,7 +1,10 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.CSS;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
@@ -26,7 +29,9 @@ namespace Business.Concrete
         }
 
 
+        [SecuredOperation("admin, moderator")]
         [ValidationAspect(typeof(BrandValidator))]
+        [CacheRemoveAspect("IBrandService.Get")]
         public IResult Add(Brand brand)
         {
             IResult result = BusinessRules.Run(CheckIfBrandNameExist(brand.BrandName));
@@ -61,13 +66,14 @@ namespace Business.Concrete
         }
 
 
-
+        [CacheAspect]
         public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandListed);
         }
 
 
+        [CacheAspect]
         public IDataResult<List<Brand>> GetById(int brandId)
         {
             IResult result = BusinessRules.Run(CheckBrandExist(brandId));

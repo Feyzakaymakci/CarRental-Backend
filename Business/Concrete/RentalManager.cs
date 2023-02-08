@@ -21,6 +21,7 @@ namespace Business.Concrete
         {
             _rentalDal= rentalDal;
         }
+
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
@@ -34,6 +35,12 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RentalDeleted);
         }
 
+        public IResult Update(Rental rental)
+        {
+            _rentalDal.Update(rental);
+            return new SuccessResult();
+        }
+
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
@@ -44,10 +51,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
         }
 
-        public IResult Update(Rental rental)
+        public IDataResult<Rental> GetByRentalId(int rentalId)
         {
-            _rentalDal.Update(rental);
-            return new SuccessResult();
+            return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.RentalId == rentalId));
         }
     }
 }

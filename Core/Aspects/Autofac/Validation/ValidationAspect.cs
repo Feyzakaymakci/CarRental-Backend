@@ -1,12 +1,13 @@
 ﻿using Castle.DynamicProxy;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Interceptors;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Core.Utilities.Interceptors.Class1;
+
 
 namespace Core.Aspects.Autofac.Validation
 {
@@ -15,7 +16,7 @@ namespace Core.Aspects.Autofac.Validation
         private Type _validatorType;
         public ValidationAspect(Type validatorType)  //attribute a tipleri type ile atıyoruz. Attribute olduğu için type geçmek zorundayız. 
         {
-            if (!typeof(IValidator).IsAssignableFrom(validatorType))  //Eğer gönderilen validator type bir IValidator değilse o zaman kız diyor. 
+            if (!typeof(IValidator).IsAssignableFrom(validatorType))  //Eğer gönderilen validator type bir IValidator değilse o zaman kız diyor. Depensive code yani savunma odaklı code diye geçer. Kullanıcı kafasına göre tip atamasın diye yazıyoruz bu kodu. 
             {
                 throw new System.Exception("Bu bir doğrulama sınıfı değildir.");
             }

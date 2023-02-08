@@ -1,15 +1,15 @@
 ﻿using Core.Entities;
+using Core.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.DTOs
 {
-    public class User : IEntity
+    public class RegisterDto : IDto
     {
-        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

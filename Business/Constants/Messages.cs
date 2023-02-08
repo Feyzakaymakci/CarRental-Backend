@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,7 +36,7 @@ namespace Business.Constants
         public static string CustomerDeleted = "Customer deleted";
         public static string CustomerUpdated = "Customer updated";
         public static string CustomerListed = "Customer listed";
-        
+
 
         //Rental
         public static string RentalAdded = "Rental added";
@@ -50,8 +52,32 @@ namespace Business.Constants
         public static string UserDeleted = "User deleted.";
         public static string UserUpdated = "User Updated.";
         public static string UserListed = "User listed.";
+        public static string EmailListed = "Email listed";
+        public static string ClaimsListed = "Claims listed";
+        public static string EmailUpdated = "Email updated";
+        public static string EmailIsAlreadyExists;
+
 
         //CarImage
         public static string SameNameExist;
+
+
+        //Payment
+        public static string PaymentInformationSaved = "Payment information saved";
+        public static string PaymentDeleted = "Payment deleted";
+        public static string PaymentUpdated= "Payment updated";
+        public static string PaymentListed="Payment listed";
+        public static string PaymentSuccessful = "Payment successful";
+        public static string ThisCardIsAlreadyRegisteredForThisCustomer = "This card is already registered for this customer";
+
+        //Auth
+        public static string UserRegistered = "User registered";
+        public static string AuthorizationDenied = "Yetkiniz yok";
+        public static string UserNotFound = "User not found";
+        public static string PasswordError = "Password error";
+        public static string LoginSuccessful = "Successfull login";
+        public static string UserAlreadyExists = "User already exists";
+        public static string AccessTokenCreated = "Access Token created";
+        public static string FirstNameAndLastNameUpdated = "Firstname and lastname updated";
     }
 }

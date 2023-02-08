@@ -9,8 +9,6 @@ namespace WebAPI.Controllers
     [ApiController]
     public class BrandsController : ControllerBase
     {
-
-
         IBrandService _brandservice;
         public BrandsController(IBrandService brandService)
         {
@@ -71,10 +69,5 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
-
-
-
-
     }
 }
