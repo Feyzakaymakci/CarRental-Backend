@@ -28,15 +28,5 @@ namespace DataAccess.Concrete.EntityFramework
 
             }
         }
-
-        public UserDto GetDto(Expression<Func<User, bool>> filter)
-        {
-            using (var context = new CarRentalContext())
-            {
-                var result = from user in context.Users.Where(filter)
-                             select new UserDto { Id = user.UserId, FirstName = user.FirstName, LastName = user.LastName, Email = user.Email };
-                return result.SingleOrDefault();
-            }
-        }
     }
 }

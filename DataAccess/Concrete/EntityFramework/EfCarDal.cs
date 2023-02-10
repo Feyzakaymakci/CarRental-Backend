@@ -28,40 +28,13 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  CarId = c.CarId,
-                                 BrandName = b.BrandName,
-                                 ColorName = co.ColorName,
-                                 ModelYear = c.ModelYear,
-                                 ModelName = c.ModelName,
-                                 DailyPrice = c.DailyPrice,
                                  BrandId = b.BrandId,
                                  ColorId = co.ColorId,
-                                 Description = c.Description,
-                                 ImagePath = (from m in context.CarImages where m.CarId == c.CarId select m.ImagePath).FirstOrDefault()
-                             };
-                return result.ToList();
-            }
-        }
-
-        public List<CarDetailDto> GetDetailsDtoByBrandId(int brandId)
-        {
-            using (CarRentalContext context = new CarRentalContext())
-            {
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.BrandId equals b.BrandId
-                             join co in context.Colors
-                             on c.ColorId equals co.ColorId
-                             where b.BrandId == brandId
-                             select new CarDetailDto
-                             {
-                                 CarId = c.CarId,
                                  BrandName = b.BrandName,
-                                 ColorName = co.ColorName,
+                                 ColorName = co.ColorName,   
+                                 ModelName = c.ModelName,
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice,
-                                 BrandId = b.BrandId,
-                                 ModelName = c.ModelName,
-                                 ColorId = co.ColorId,
                                  Description = c.Description,
                                  ImagePath = (from m in context.CarImages where m.CarId == c.CarId select m.ImagePath).FirstOrDefault()
                              };
@@ -81,14 +54,14 @@ namespace DataAccess.Concrete.EntityFramework
                              where c.CarId == carId
                              select new CarDetailDto
                              {
-                                 CarId = c.CarId,
+                                 CarId = c.CarId, 
+                                 BrandId = b.BrandId,
+                                 ColorId = co.ColorId,
                                  BrandName = b.BrandName,
                                  ColorName = co.ColorName,
+                                 ModelName = c.ModelName,  
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice,
-                                 BrandId = b.BrandId,
-                                 ModelName = c.ModelName,
-                                 ColorId = co.ColorId,
                                  Description = c.Description,
                                  ImagePath = (from m in context.CarImages where m.CarId == c.CarId select m.ImagePath).FirstOrDefault()
                              };
@@ -96,7 +69,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<CarDetailDto> GetDetailsDtoByColorAndByBrand(int colorId, int brandId)
+        public List<CarDetailDto> GetDetailsDtoByBrandIdAndColorId(int brandId, int colorId)
         {
             using (CarRentalContext context = new CarRentalContext())
             {
@@ -109,40 +82,13 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  CarId = c.CarId,
+                                 BrandId = b.BrandId,
+                                 ColorId = co.ColorId,
                                  BrandName = b.BrandName,
                                  ColorName = co.ColorName,
-                                 ModelYear = c.ModelYear,
-                                 DailyPrice = c.DailyPrice,
-                                 BrandId = b.BrandId,
                                  ModelName = c.ModelName,
-                                 ColorId = co.ColorId,
-                                 Description = c.Description,
-                                 ImagePath = (from m in context.CarImages where m.CarId == c.CarId select m.ImagePath).FirstOrDefault()
-                             };
-                return result.ToList();
-            }
-        }
-
-        public List<CarDetailDto> GetDetailsDtoByColorId(int colorId)
-        {
-            using (CarRentalContext context = new CarRentalContext())
-            {
-                var result = from c in context.Cars
-                             join b in context.Brands
-                             on c.BrandId equals b.BrandId
-                             join co in context.Colors
-                             on c.ColorId equals co.ColorId
-                             where c.ColorId == colorId
-                             select new CarDetailDto
-                             {
-                                 CarId = c.CarId,
-                                 BrandName = b.BrandName,
-                                 ColorName = co.ColorName,
                                  ModelYear = c.ModelYear,
                                  DailyPrice = c.DailyPrice,
-                                 BrandId = b.BrandId,
-                                 ModelName = c.ModelName,  //sql de bu alanı ekle ondan hata veriyor.
-                                 ColorId = co.ColorId,
                                  Description = c.Description,
                                  ImagePath = (from m in context.CarImages where m.CarId == c.CarId select m.ImagePath).FirstOrDefault()
                              };

@@ -56,7 +56,7 @@ namespace Business.Concrete
 
         public IDataResult<Payment> GetById(int id)
         {
-            return new SuccessDataResult<Payment>(_paymentDal.Get(p => p.Id == id);
+            return new SuccessDataResult<Payment>(_paymentDal.Get(p => p.PaymentId == id));
         }
     }
 }

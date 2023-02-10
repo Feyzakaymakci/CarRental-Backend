@@ -114,22 +114,10 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet("getdetailsdtobybrandid")]
-        public IActionResult GetDetailsDtoByBrandId(int brandId)
+        [HttpGet("getdetailsdtobybrandidandcolorid")]
+        public IActionResult GetDetailsDtoByBrandIdAndColorId(int brandId, int colorId)
         {
-            var result = _carService.GetDetailsDtoByBrandId(brandId);
-            if (!result.Success)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
-        }
-
-        [HttpGet("getdetailsdtobycolorid")]
-        public IActionResult GetDetailsDtoByColorId(int colorId)
-        {
-            var result = _carService.GetDetailsDtoByColorId(colorId);
-
+            var result = _carService.GetDetailsDtoByBrandIdAndColorId(brandId, colorId);
             if (!result.Success)
             {
                 return BadRequest(result);

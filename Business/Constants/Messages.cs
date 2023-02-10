@@ -70,6 +70,11 @@ namespace Business.Constants
         public static string PaymentSuccessful = "Payment successful";
         public static string ThisCardIsAlreadyRegisteredForThisCustomer = "This card is already registered for this customer";
 
+        //Card
+        public static string CardAdded;
+        public static string CardDeleted;
+        public static string CardUpdated;
+
         //Auth
         public static string UserRegistered = "User registered";
         public static string AuthorizationDenied = "Yetkiniz yok";
@@ -79,5 +84,6 @@ namespace Business.Constants
         public static string UserAlreadyExists = "User already exists";
         public static string AccessTokenCreated = "Access Token created";
         public static string FirstNameAndLastNameUpdated = "Firstname and lastname updated";
+     
     }
 }

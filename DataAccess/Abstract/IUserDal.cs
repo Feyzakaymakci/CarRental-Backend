@@ -14,6 +14,5 @@ namespace DataAccess.Abstract
     public interface IUserDal : IEntityRepository<User>
     {
         List<OperationClaim> GetClaims(User user); //Parametre olarak verdiğimiz kullanıcının sahip olduğu claimlerini çekmek istiyoruz. Bizim için bir join operasyonu olucak.
-        UserDto GetDto(Expression<Func<User, bool>> filter);
     }
 }
