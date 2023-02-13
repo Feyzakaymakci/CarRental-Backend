@@ -10,13 +10,11 @@ namespace Business.Abstract
 {
     public interface IPaymentService
     {
-        IResult Pay(Payment payment);
         IResult Add(Payment payment);
         IResult Delete(Payment payment);
         IResult Update(Payment payment);
-        IDataResult<Payment> GetById(int id);
+        IDataResult<Payment> GetByPaymentId(int id);
         IDataResult<List<Payment>> GetAll();
-        IDataResult<List<Payment>> GetAllByCustomerId(int customerId);
       
     }
 }

@@ -2,6 +2,7 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
@@ -17,9 +18,11 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
-        public RentalManager(IRentalDal rentalDal)
+        ICarDal _carDal;
+        public RentalManager(IRentalDal rentalDal, ICarDal carDal)
         {
             _rentalDal= rentalDal;
+            _carDal = carDal;
         }
 
         [ValidationAspect(typeof(RentalValidator))]
@@ -54,6 +57,42 @@ namespace Business.Concrete
         public IDataResult<Rental> GetByRentalId(int rentalId)
         {
             return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.RentalId == rentalId));
+        }
+
+        public IResult IsCarAvaible(int carId)
+        {
+            IResult result = BusinessRules.Run(IsAvaibleForCarRental(carId));
+            if (result != null)
+            {
+                return new ErrorResult("The car is not available at the specified time.");
+            }
+            return new SuccessResult("The car available at the specified time");
+        }
+
+        private IResult IsAvaibleForCarRental(int carId)
+        {
+            var result = _rentalDal.GetAll(r => r.CarId == carId).Any();
+            if (result)
+            {
+                return new ErrorResult();
+            }
+            return new SuccessResult();
+        }
+
+        public List<int> CalculateTotalPrice(DateTime rentDate, DateTime returnDate, int carId)
+        {
+            List<int> totalAmount = new List<int>();
+            var dateDifference = (returnDate - rentDate).Days;
+            //var datesOfDifference = dateDifference.Days;
+            var dailyCarPrice = decimal.ToInt32(_carDal.Get(c => c.CarId == carId).DailyPrice);
+
+            var totalPrice = dateDifference * dailyCarPrice;
+
+            totalAmount.Add(dateDifference);
+            totalAmount.Add(totalPrice);
+
+
+            return totalAmount;
         }
     }
 }

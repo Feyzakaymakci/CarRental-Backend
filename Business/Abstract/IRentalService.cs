@@ -17,6 +17,7 @@ namespace Business.Abstract
         IDataResult<List<Rental>> GetAll();
         IDataResult<Rental> GetByRentalId(int rentalId);
         IDataResult<List<RentalDetailDto>> GetRentalDetails();
-        
+        IResult IsCarAvaible(int carId);
+        List<int> CalculateTotalPrice(DateTime rentDate, DateTime returnDate, int carId);
     }
 }

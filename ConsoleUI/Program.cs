@@ -4,7 +4,7 @@ using System;
 
 namespace ConsoleUI
 {
-    public class Program
+     class Program
     {
        static void Main(string[] args)
         {

@@ -12,6 +12,7 @@ namespace Entities.Concrete
         public int PaymentId { get; set; }
         public int CustomerId { get; set; }
         public string CardNumber { get; set; }
+        public decimal Price { get; set; }
         public int ExpirationDate { get; set; }
         public string CVV { get; set; }
      

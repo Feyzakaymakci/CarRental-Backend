@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Entities;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,18 +7,20 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class PaymentsController : ControllerBase
     {
-        ICustomerService _customerService;
-        public CustomersController(ICustomerService customerService)
+
+        IPaymentService _paymentService;
+
+        public PaymentsController(IPaymentService paymentService)
         {
-            _customerService = customerService;
+            _paymentService = paymentService;
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Customer customer)
+        public IActionResult Add(Payment payment)
         {
-            var result=_customerService.Add(customer);
+            var result = _paymentService.Add(payment);
             if (result.Success)
             {
                 return Ok(result);
@@ -27,9 +29,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Customer customer)
+        public IActionResult Delete(Payment payment)
         {
-            var result = _customerService.Delete(customer);
+            var result = _paymentService.Delete(payment);
             if (result.Success)
             {
                 return Ok(result);
@@ -38,9 +40,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Customer customer)
+        public IActionResult Update(Payment payment)
         {
-            var result = _customerService.Update(customer);
+            var result = _paymentService.Update(payment);
             if (result.Success)
             {
                 return Ok(result);
@@ -51,23 +53,23 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _customerService.GetAll();
+            var result = _paymentService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int customerId)
+        [HttpGet("getbypaymentid")]
+        public IActionResult GetByPaymentId(int paymentId)
         {
-            var result = _customerService.GetById(customerId);
+            var result = _paymentService.GetByPaymentId(paymentId);
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
     }
 }
