@@ -78,7 +78,11 @@ namespace WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
 
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());  //local host olan adresten ne gelirse gelsin izin ver demek. O web sayfasýna güveniyorum demek.Birden fazla web sayfan varsa onu virgülle ayýrarak ekleyebilirsin.
+
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 

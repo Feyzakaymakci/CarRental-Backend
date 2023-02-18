@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Security.Encryption
 {
-    public class SigningCredentialsHelper //Web API'ya diceksin ki JWT sistemini yöneteceksin senin anahtarın budur,şifreleme algoritman da budur diyeceksin. Yani kısaca WebaPI ya da söylüyoruz anahtarı ve güvenlik algoritmasını
+    public class SigningCredentialsHelper //Web API'ya diceksin ki JWT sistemini yöneteceksin al senin anahtarın budur,şifreleme algoritman da budur diyeceksin. Yani kısaca WebaPI ya da söylüyoruz anahtarı ve güvenlik algoritmasını
     {
         public static SigningCredentials CreateSigningCredentials(SecurityKey securityKey)
         {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static Core.Extensions.ErrorDetails;
 
 namespace Core.Extensions
 {
@@ -43,8 +44,8 @@ namespace Core.Extensions
             {
                 message = e.Message; //e. deyince exception hatalarını alırız.
                 errors = ((ValidationException)e).Errors;
-                httpContext.Response.StatusCode = 400; //400 bad request tir.  Hatanın türünü burada kontrol ettik. Eğer doğrulama hatasıysa o doğrulama hatasıne göre bir dönüş gerçekleştirdik. Yanlış kontrollerle sistemde bug oluişturabiliriz bu yüzden bunu yazmaktan vazgeç.
-                return httpContext.Response.WriteAsync(new ErrorDetails
+                httpContext.Response.StatusCode = 400; //400 bad request tir.  Hatanın türünü burada kontrol ettik. Eğer doğrulama hatasıysa o doğrulama hatasıne göre bir dönüş gerçekleştirdik. Yanlış kontrollerle sistemde bug oluşturabiliriz bu yüzden bunu yazmaktan vazgeç.
+                return httpContext.Response.WriteAsync(new ValidationErrorDetails
                 {
                     StatusCode=400,
                     Message=message,

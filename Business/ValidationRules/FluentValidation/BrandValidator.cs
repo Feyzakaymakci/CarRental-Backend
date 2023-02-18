@@ -14,13 +14,6 @@ namespace Business.ValidationRules.FluentValidation
         {
             RuleFor(b=>b.BrandName).MinimumLength(2); //b nin brandname ı min 2 karakter olmalı diyoruz burada.
             RuleFor(b=>b.BrandName).NotEmpty();
-            RuleFor(b => b.BrandName).Must(StartWithA);
-
-        }
-
-        private bool StartWithA(string arg)
-        {
-            return arg.StartsWith("A");    //A ile başlıyorsa burası true döner başlamazsa false döner.Bool bir metot
         }
     }
 }

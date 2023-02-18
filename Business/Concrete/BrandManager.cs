@@ -29,9 +29,9 @@ namespace Business.Concrete
         }
 
 
-        [SecuredOperation("admin, moderator")]
-        [ValidationAspect(typeof(BrandValidator))]
-        [CacheRemoveAspect("IBrandService.Get")]
+        //[SecuredOperation("admin, moderator")]
+        //[ValidationAspect(typeof(BrandValidator))]
+        //[CacheRemoveAspect("IBrandService.Get")]
         public IResult Add(Brand brand)
         {
             IResult result = BusinessRules.Run(CheckIfBrandNameExist(brand.BrandName));
@@ -57,7 +57,7 @@ namespace Business.Concrete
 
 
 
-        [ValidationAspect(typeof(BrandValidator))]
+        //[ValidationAspect(typeof(BrandValidator))]
         public IResult Update(Brand brand)
         {
             IResult result = BusinessRules.Run(CheckIfBrandNameExist(brand.BrandName), CheckBrandExist(brand.BrandId));
@@ -66,14 +66,14 @@ namespace Business.Concrete
         }
 
 
-        [CacheAspect]
+        //[CacheAspect]
         public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandListed);
         }
 
 
-        [CacheAspect]
+        //[CacheAspect]
         public IDataResult<List<Brand>> GetById(int brandId)
         {
             IResult result = BusinessRules.Run(CheckBrandExist(brandId));
