@@ -96,12 +96,7 @@ namespace WebAPI.Controllers
         [HttpGet("totalprice")]
         public IActionResult TotalPrice(object totalAmountInfo)
         {
-            // var result = _rentalService.CalculateTotalPrice(rentDate, returnDate,carId);
-            //if (result!=null)
-            //{
             return Ok();
-            //}
-            //return BadRequest(result);
         }
     }
 }
