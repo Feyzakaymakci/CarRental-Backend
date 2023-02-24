@@ -1,1 +1,0 @@
-﻿select*from carImages where carId=1;
