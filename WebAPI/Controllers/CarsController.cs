@@ -59,9 +59,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbycarid")]
-        public IActionResult GetByCarId(int id)
+        public IActionResult GetByCarId(int carId)
         {
-            var result = _carService.GetByCarId(id);
+            var result = _carService.GetByCarId(carId);
             if (result.Success)
             {
                 return Ok(result.Data);
@@ -113,6 +113,19 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
+
+        //Örnek olsun diye bırakıyorum isimlendirme kebab-case olur get koymana gerek yok diğerlerini eskisi gibi devam edersin
+        [HttpGet("details-by-car-id")]
+        public IActionResult GetDetailsByColorId(int colorId)
+        {
+            var result = _carService.GetDetailsDtoByColorId(colorId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
 
         [HttpGet("getdetailsdtobybrandidandcolorid")]
         public IActionResult GetDetailsDtoByBrandIdAndColorId(int brandId, int colorId)

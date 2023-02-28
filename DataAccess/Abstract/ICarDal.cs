@@ -4,6 +4,7 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,5 +15,6 @@ namespace DataAccess.Abstract
         List<CarDetailDto> GetDetailsDto();
         List<CarDetailDto> GetDetailsDtoByBrandIdAndColorId(int brandId, int colorId);
         List<CarDetailDto> GetDetailsDtoByCarId(int carId);
+        List<CarDetailDto> GetDetailsDtoByFilter(Expression<Func<CarDetailDto, bool>> filter);
     }
 }
