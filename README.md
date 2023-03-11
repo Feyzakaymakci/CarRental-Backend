@@ -102,6 +102,13 @@
 | Microsoft.Extensions.Configuration.Binder  | 7.0.3  |
 | System.IdentityModel.Tokens.Jwt | 6.25.1 |
 
+<br>
 
 # **SCREENSHOTS**
-
+![1](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20131926.png)
+![2](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20133154.png)
+![3](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20131546.png)
+![4](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20131635.png)
+![5](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20131814.png)
+![6](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20131829.png)
+![7](https://github.com/Feyzakaymakci/CarRental-Backend/blob/master/Screenshots/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202023-03-04%20132136.png)
